@@ -49,12 +49,14 @@
   
     <update id="update" parameterType="qna">
     update m_qna set 
-        m_qtitle = #{m_qtitle},
-        m_qtitle = #{m_qtitle}
+        m_qtitle = #{title},
+        m_qcontent = #{content},
+        a_qcontent = #{answer},
+        a_qdate = #{answerDate}
     where m_qno = #{no}
    </update>
 
-<!-- 
+
   <select id="findByNo" resultMap="qnaMap" parameterType="int">
     select
       q.m_qno,
@@ -66,7 +68,7 @@
       m.mno as writer_no,
       m.mname as writer_name
     from m_qna q
-    inner join member m on m.mno=q.m_qno
+    inner join member m on m.mno=q.mno
     where q.m_qno = #{value}
   </select>
 
@@ -76,6 +78,6 @@
     delete from m_qna
     where m_qno = #{value}
   </delete>
-    -->
+    
 
 </mapper>

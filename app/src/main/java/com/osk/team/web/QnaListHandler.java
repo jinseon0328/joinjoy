@@ -61,6 +61,10 @@ public class QnaListHandler extends HttpServlet {
       out.println("</table>");
 
 
+      out.println("<form action='update' method='get'>");
+      out.println("</form>");
+
+
     } catch (Exception e) {
       // 상세 오류 내용을 StringWriter로 출력한다.
       StringWriter strWriter = new StringWriter();

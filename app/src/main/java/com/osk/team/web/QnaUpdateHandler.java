@@ -44,9 +44,10 @@ public class QnaUpdateHandler extends HttpServlet {
       }
 
       Qna qna = new Qna();
-      qna.setNo(oldQna.getWriter().getNo());
+      qna.setNo(oldQna.getNo());
       qna.setTitle(request.getParameter("title"));
       qna.setContent(request.getParameter("content"));
+      qna.setAnswer(request.getParameter("answer"));
       qnaService.update(qna);
 
       out.println("<meta http-equiv='Refresh' content='1;url=list'>");
@@ -70,6 +71,8 @@ public class QnaUpdateHandler extends HttpServlet {
 
     out.println("</body>");
     out.println("</html>");
-
   }
+
+
 }
+

@@ -17,7 +17,7 @@ import com.osk.team.service.QnaService;
 public class QnaDeleteHandler extends HttpServlet {
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     QnaService qnaService = (QnaService) request.getServletContext().getAttribute("qnaService");

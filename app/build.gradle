@@ -17,7 +17,7 @@ plugins {
 
 eclipse {
     project {
-        name = "team"
+        name = "joinjoy"
     }
 }
 
@@ -33,7 +33,7 @@ tasks.withType(JavaCompile) {
 }
 
 war {
-    archiveBaseName = "team"
+    archiveBaseName = "joinjoy"
 }
 
 dependencies {
