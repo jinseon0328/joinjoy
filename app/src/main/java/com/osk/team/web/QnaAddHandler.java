@@ -37,6 +37,8 @@ public class QnaAddHandler extends HttpServlet {
     out.println("제목: <input type='text' name='title'><br>");
     out.println("내용: <textarea name='content' rows='10' cols='60'></textarea><br>");
     out.println("<input type='submit' value='등록'>");
+    out.println("<p><a href='list'>목록</a></p>");   
+    // 작성 취소 시 돌아갈 목록 만들기!
     out.println("</form>");
     out.println("</body>");
     out.println("</html>");
