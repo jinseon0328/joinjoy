@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.osk.team.domain.Board;
 import com.osk.team.service.BoardService;
 
@@ -21,7 +19,7 @@ public class BoardListHandler extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
-          throws ServletException, IOException {
+      throws ServletException, IOException {
 
     BoardService boardService = (BoardService) request.getServletContext().getAttribute("boardService");
 
@@ -51,20 +49,20 @@ public class BoardListHandler extends HttpServlet {
 
       for (Board b : boards) {
         out.printf("<tr>"
-                        + " <td><a href='detail?no=%1$d'>%s</a></td>"
-                        + " <td>%s</td>"
+            + " <td><a href='detail?no=%1$d'>%s</a></td>"
+            + " <td>%s</td>"
 
                         + " <td>%s</td>"
                         + " <td>%s</td>"
                         + " <td>%d</td> </tr>\n",
 
-                b.getNo(),
-                b.getTitle(),
+                        b.getNo(),
+                        b.getTitle(),
 
-                b.getWriter().getName(),
-                b.getRegisteredDate(),
-                b.getViewCount()
-        );
+                        b.getWriter().getName(),
+                        b.getRegisteredDate(),
+                        b.getViewCount()
+            );
       }
       out.println("</tbody>");
       out.println("</table>");
@@ -88,6 +86,8 @@ public class BoardListHandler extends HttpServlet {
     out.println("</html>");
   }
 }
+
+
 
 
 

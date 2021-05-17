@@ -21,8 +21,9 @@
 </tr>
 </thead>
 <tbody>
+<jsp:useBean id="list" type="List<Qna>" scope="request"/>
+
 <% 
-List<Qna> list = (List<Qna>) request.getAttribute("list");
       for (Qna q : list) {
 %>
         <tr>

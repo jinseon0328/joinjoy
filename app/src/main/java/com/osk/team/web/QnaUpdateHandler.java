@@ -47,7 +47,13 @@ public class QnaUpdateHandler extends HttpServlet {
       qna.setNo(oldQna.getNo());
       qna.setTitle(request.getParameter("title"));
       qna.setContent(request.getParameter("content"));
-      qna.setAnswer(request.getParameter("answer"));
+
+      if (oldQna.getWriter().getPower() == 1) {
+        qna.setAnswer(request.getParameter("answer"));
+        qna.setAnswer(request.getParameter("answerDate"));
+      } else {
+        throw new Exception("답변 권한이 없습니다!");
+      }
       qnaService.update(qna);
 
       out.println("<meta http-equiv='Refresh' content='1;url=list'>");
