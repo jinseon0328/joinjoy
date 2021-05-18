@@ -9,15 +9,14 @@
 <html>
 <head>
 <title>QnA 상세</title>
+<jsp:useBean id="loginUser" class="com.osk.team.domain.Member" scope="session"/>
+<% 
+Qna qna = (Qna) request.getAttribute("qna");
+if ( (loginUser.getPower() == 1) || (loginUser != null && qna.getWriter().getNo() == loginUser.getNo()) ) {
+%>
 </head>
 <body>
 <h1>QnA 게시글 상세보기(JSP + JSP 액션태그 + EL)</h1>
-<jsp:useBean id="loginUser" type="com.osk.team.domain.Member" scope="session"/>
-<% 
-Qna qna = (Qna) request.getAttribute("qna");
-if (loginUser != null && qna.getWriter().getNo() == loginUser.getNo() || loginUser.getPower() == 1) {
-    if (request.getAttribute("qna") != null) {
-%>
 <form action='update' method='post'>
 <table border='1'>
 <tbody>
@@ -27,31 +26,21 @@ if (loginUser != null && qna.getWriter().getNo() == loginUser.getNo() || loginUs
 <tr><th>작성자</th> <td>${qna.writer.name}</td></tr>
 <tr><th>등록일</th> <td>${qna.registeredDate}</td></tr>
 <tr><th>답변일</th> <td>${qna.answerDate}</td></tr>
-<tr><th>답변내용</th> <td>${qna.answer}</td></tr>
+<tr><th>답변내용</th> <td><textarea name='answer' rows='10' cols='60'>${qna.answer}</textarea></td></tr>
 
 </tbody>
-<jsp:useBean id="loginUser2" class="com.osk.team.domain.Member" scope="session"/>
-<%
-if (loginUser != null && qna.getWriter().getNo() == loginUser2.getNo() || loginUser2.getPower() == 1) {
-%>
+
         <tfoot>
         <tr><td colspan='2'>
         <input type='submit' value='변경'>
            <a href='delete?no=${qna.no}'>삭제</a>
         </td></tr>
         </tfoot>
-<%}%>
 
-      </table>
-      </form>
-      
-     <%} else {%> 
-    <p>해당 번호의 게시글이 없습니다.</p>
-<%} %>
+
 <%} else {%>
       <p>해당 게시자가 아닙니다.</p>
 <%}%>
-
 <p><a href='list'>목록</a></p>
 </body>
 </html>

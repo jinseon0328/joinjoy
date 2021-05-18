@@ -34,34 +34,43 @@ public class QnaUpdateHandler extends HttpServlet {
       int no = Integer.parseInt(request.getParameter("no"));
 
       Qna oldQna = qnaService.get(no);
+      Qna qna = new Qna();
+      Qna newQna = qnaService.get(no);
       if (oldQna == null) {
         throw new Exception("해당 번호의 QnA가 없습니다.");
       }
 
       Member loginUser = (Member) request.getSession().getAttribute("loginUser");
-      if (oldQna.getWriter().getNo() != loginUser.getNo()) {
-        throw new Exception("변경 권한이 없습니다!");
+      if (loginUser.getPower() == 1 || oldQna.getWriter().getNo() == loginUser.getNo()) {
+
+        qna.setNo(oldQna.getNo());
+        qna.setTitle(request.getParameter("title"));
+        qna.setContent(request.getParameter("content"));
+
+
+        if (loginUser.getPower() == 1) {
+          qna.setAnswer(request.getParameter("answer"));
+          qna.setAnswer(request.getParameter("answerDate"));
+
+          if (oldQna.getWriter().getNo() != loginUser.getNo()) {
+            newQna.setNo(qna.getNo());
+            newQna.setAnswer(request.getParameter("answer"));
+            newQna.setAnswer(request.getParameter("answerDate"));
+          } else {
+            throw new Exception("답변 권한이 없습니다!");
+          } 
+        } else {
+          throw new Exception("변경 권한이 없습니다!");
+        }
+        qnaService.update(qna);
+
+        out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>QnA 변경</h1>");
+        out.println("<p>QnA을 변경하였습니다.</p>");
+
       }
-
-      Qna qna = new Qna();
-      qna.setNo(oldQna.getNo());
-      qna.setTitle(request.getParameter("title"));
-      qna.setContent(request.getParameter("content"));
-
-      if (oldQna.getWriter().getPower() == 1) {
-        qna.setAnswer(request.getParameter("answer"));
-        qna.setAnswer(request.getParameter("answerDate"));
-      } else {
-        throw new Exception("답변 권한이 없습니다!");
-      }
-      qnaService.update(qna);
-
-      out.println("<meta http-equiv='Refresh' content='1;url=list'>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<h1>QnA 변경</h1>");
-      out.println("<p>QnA을 변경하였습니다.</p>");
-
     } catch (Exception e) {
       StringWriter strWriter = new StringWriter();
       PrintWriter printWriter = new PrintWriter(strWriter);
@@ -77,8 +86,6 @@ public class QnaUpdateHandler extends HttpServlet {
 
     out.println("</body>");
     out.println("</html>");
+
   }
-
-
 }
-
