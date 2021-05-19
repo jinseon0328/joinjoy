@@ -12,6 +12,7 @@
 <jsp:useBean id="loginUser" class="com.osk.team.domain.Member" scope="session"/>
 <% 
 Qna qna = (Qna) request.getAttribute("qna");
+System.out.print(loginUser.getPower());
 if ( (loginUser.getPower() == 1) || (loginUser != null && qna.getWriter().getNo() == loginUser.getNo()) ) {
 %>
 </head>
@@ -25,18 +26,24 @@ if ( (loginUser.getPower() == 1) || (loginUser != null && qna.getWriter().getNo(
 <tr><th>내용</th> <td><textarea name='content' rows='10' cols='60'>${qna.content}</textarea></td></tr>
 <tr><th>작성자</th> <td>${qna.writer.name}</td></tr>
 <tr><th>등록일</th> <td>${qna.registeredDate}</td></tr>
+<% 
+if (loginUser.getPower() == 1 || qna.getAnswer() != null) {
+%>
 <tr><th>답변일</th> <td>${qna.answerDate}</td></tr>
 <tr><th>답변내용</th> <td><textarea name='answer' rows='10' cols='60'>${qna.answer}</textarea></td></tr>
 
+<%}%> 
 </tbody>
 
         <tfoot>
         <tr><td colspan='2'>
+        <% if ( (loginUser.getPower() == 1) || qna.getAnswer() == null ) {
+        %>
         <input type='submit' value='변경'>
+        <% }%>
            <a href='delete?no=${qna.no}'>삭제</a>
         </td></tr>
         </tfoot>
-
 
 <%} else {%>
       <p>해당 게시자가 아닙니다.</p>
