@@ -12,7 +12,6 @@
 <jsp:useBean id="loginUser" class="com.osk.team.domain.Member" scope="session"/>
 <% 
 Qna qna = (Qna) request.getAttribute("qna");
-System.out.print(loginUser.getPower());
 if ( (loginUser.getPower() == 1) || (loginUser != null && qna.getWriter().getNo() == loginUser.getNo()) ) {
 %>
 </head>
