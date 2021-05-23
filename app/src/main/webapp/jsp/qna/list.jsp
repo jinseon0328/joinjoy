@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>QnA 목록</h1>
-<p><a href='form.html'>QnA 작성</a></p>   
+<p><a href='add'>QnA 작성</a></p>   
 <table border='1'>
 <thead>
 <tr>

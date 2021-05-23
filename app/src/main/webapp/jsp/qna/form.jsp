@@ -15,5 +15,6 @@
 내용: <textarea name="content" rows="10" cols="60"></textarea><br>
 <input type="submit" value="등록">
 </form>
+<p><a href='list'>목록</a></p>
 </body>
 </html>
