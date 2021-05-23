@@ -1,13 +1,14 @@
 package com.osk.team.web;
 
+import com.osk.team.domain.Qna;
+import com.osk.team.service.QnaService;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.osk.team.domain.Qna;
-import com.osk.team.service.QnaService;
 
 @SuppressWarnings("serial")
 @WebServlet("/qna/detail")

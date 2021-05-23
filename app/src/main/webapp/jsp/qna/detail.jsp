@@ -14,6 +14,7 @@
 Qna qna = (Qna) request.getAttribute("qna");
 if ( (loginUser.getPower() == 1) || (loginUser != null && qna.getWriter().getNo() == loginUser.getNo()) ) {
 %>
+
 </head>
 <body>
 <h1>QnA 게시글 상세보기(JSP + JSP 액션태그 + EL)</h1>
@@ -48,5 +49,6 @@ if (loginUser.getPower() == 1 || qna.getAnswer() != null) {
       <p>해당 게시자가 아닙니다.</p>
 <%}%>
 <p><a href='list'>목록</a></p>
+
 </body>
 </html>

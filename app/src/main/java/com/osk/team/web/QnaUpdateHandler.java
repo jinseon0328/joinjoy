@@ -2,6 +2,7 @@ package com.osk.team.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.osk.team.domain.Member;
 import com.osk.team.domain.Qna;
 import com.osk.team.service.QnaService;
+
 @SuppressWarnings("serial")
 @WebServlet("/qna/update")
 public class QnaUpdateHandler extends HttpServlet {
@@ -17,6 +19,9 @@ public class QnaUpdateHandler extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     QnaService qnaService = (QnaService) request.getServletContext().getAttribute("qnaService");
+
+    SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<!DOCTYPE html>");

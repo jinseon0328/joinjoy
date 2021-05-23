@@ -5,7 +5,7 @@
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,20 +21,14 @@
 </tr>
 </thead>
 <tbody>
-<jsp:useBean id="list" type="List<Qna>" scope="request"/>
-
-<% 
-      for (Qna q : list) {
-%>
+<c:forEach items="${list}" var="q">
         <tr>
-            <td><%=q.getNo()%></td>
-            <td><a href='detail?no=<%=q.getNo()%>'><%=q.getTitle()%></a></td>
-            <td><%=q.getWriter().getName()%></td>
-            <td><%=q.getRegisteredDate()%></td> 
+            <td>${q.getNo()}</td>
+            <td><a href='detail?no=${q.getNo()}'>${q.getTitle()}</a></td>
+            <td>${q.getWriter().getName()}</td>
+            <td>${q.getRegisteredDate()}</td> 
             </tr>
-<% 
-}
-%>
+</c:forEach>
       </tbody>
       </table>
       <form action='update' method='get'>
