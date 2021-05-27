@@ -2,50 +2,71 @@ package com.osk.team.web;
 
 import java.util.Properties;
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
+import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 public class QnaSendMail {
-  public static void main(String args[]) throws MessagingException{
-    // 메일 관련 정보
-    String host = "smtp.naver.com";
-    final String username = "desire_yo";
-    final String password = "bitcamp1111";
-    int port=465;
+  // 1. 계정 정보를 입력하고 encoding 설정을 합니다.
+  private final String user = "desire_yo@naver.com";   // Sender Email
+  private final String password = "bitcamp1111";       // Sender Password
+  private final String ENC_TYPE = "EUC-KR";           // Content Encoding
 
-    // 메일 내용
-    String recipient = "wishofsun@daum.net";
-    String subject = "네이버를 사용한 발송 테스트입니다.";
-    String body = "내용 무";
+  private Properties prop;    // SMTP Setting information
 
-    Properties props = System.getProperties();
+  public QnaSendMail() {
+    this.prop = getProperties();
+  }
 
+  // 2. 아까 확인했던 SMTP 정보를 기입합니다.
+  private Properties getProperties() {
+    Properties prop = new Properties();
+    prop.put("mail.smtp.host", "smtp.naver.com");
+    prop.put("mail.smtp.port", 587);
+    prop.put("mail.smtp.auth", "true");
 
-    props.put("mail.smtp.host", host);
-    props.put("mail.smtp.port", port);
-    props.put("mail.smtp.auth", "true");
-    props.put("mail.smtp.ssl.enable", "true");
-    props.put("mail.smtp.ssl.trust", host);
+    return prop;
+  }
 
-    Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-      String un=username;
-      String pw=password;
+  // 3. SMTP정보를 기반으로 인증을 받아 Session을 생성합니다.
+  private Session getSession() {
+    return  Session.getDefaultInstance(prop, new Authenticator() {
       @Override
       protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication(un, pw);
+        return new PasswordAuthentication(user, password);
       }
     });
-    session.setDebug(true); //for debug
+  }
 
-    Message mimeMessage = new MimeMessage(session);
-    mimeMessage.setFrom(new InternetAddress("smtp.naver.com"));
-    mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-    mimeMessage.setSubject(subject);
-    mimeMessage.setText(body);
-    Transport.send(mimeMessage);
+  // 4. Mail을 전송하는 부분입니다.
+  public void send(String pdfPath) {
+    try {
+      Session session = getSession();
+      MimeMessage message = new MimeMessage(session);
+      message.setFrom(new InternetAddress(user));
+      // Receiver mail
+      message.addRecipient(Message.RecipientType.TO, new InternetAddress("wishofsun@daum.net"));
+      // Suject
+      message.setSubject("test입니다");
+      // Text
+      MimeBodyPart content = new MimeBodyPart();
+      content.setText("test내용입니다.");
+
+      // Write contents(Text & File)
+      Multipart mp = new MimeMultipart();
+      mp.addBodyPart(content);
+      message.setContent(mp);
+
+      // Send the message
+      Transport.send(message);
+      System.out.println("전송 완료!");
+    } catch (Exception e) {
+      System.out.println("전송 실패!");
+      e.printStackTrace();
+    }
   }
 }
