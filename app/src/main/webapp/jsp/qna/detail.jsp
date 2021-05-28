@@ -10,10 +10,8 @@
 <head>
 <title>QnA 상세</title>
 <jsp:useBean id="loginUser" class="com.osk.team.domain.Member" scope="session"/>
-<% 
-Qna qna = (Qna) request.getAttribute("qna");
-if ( (loginUser.getPower() == 1) || (loginUser != null && qna.getWriter().getNo() == loginUser.getNo()) ) {
-%>
+
+<c:if test="${not empty loginUser and loginUser.no == qna.writer.no or loginUser.power == 1 }">
 
 </head>
 <body>
@@ -26,28 +24,31 @@ if ( (loginUser.getPower() == 1) || (loginUser != null && qna.getWriter().getNo(
 <tr><th>내용</th> <td><textarea name='content' rows='10' cols='60'>${qna.content}</textarea></td></tr>
 <tr><th>작성자</th> <td>${qna.writer.name}</td></tr>
 <tr><th>등록일</th> <td>${qna.registeredDate}</td></tr>
-<% 
-if (loginUser.getPower() == 1 || qna.getAnswer() != null) {
-%>
+
+<c:if test="${qna.getAnswer() != null or loginUser.power == 1 }">
 <tr><th>답변일</th> <td>${qna.answerDate}</td></tr>
 <tr><th>답변내용</th> <td><textarea name='answer' rows='10' cols='60'>${qna.answer}</textarea></td></tr>
 
-<%}%> 
+</c:if>
 </tbody>
 
         <tfoot>
         <tr><td colspan='2'>
-        <% if ( (loginUser.getPower() == 1) || qna.getAnswer() == null ) {
-        %>
+        <c:if test="${loginUser.getPower() == 1 || qna.getAnswer() == null }">
         <input type='submit' value='변경'>
-        <% }%>
+        </c:if>
            <a href='delete?no=${qna.no}'>삭제</a>
         </td></tr>
         </tfoot>
 
-<%} else {%>
-      <p>해당 게시자가 아닙니다.</p>
-<%}%>
+</c:if>
+
+<!--  <c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}>
+    <tr>
+      <td colspan='5'>해당 게시자가 아닙니다.</td>
+    </tr>
+</c:if>-->
+
 <p><a href='list'>목록</a></p>
 
 </body>
