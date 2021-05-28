@@ -42,7 +42,7 @@ dependencies {
     // => compileOnly : 컴파일한 후 생성되는 빌드 파일에 포함되지 않는다.
     //
     // 메일 발송 API
-    implementation 'javax.mail:javax.mail-api:1.6.2'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
 
     // Thumbnailator 썸네일 생성 라이브러리
     implementation 'net.coobird:thumbnailator:0.4.13'
