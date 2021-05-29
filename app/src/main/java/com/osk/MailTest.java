@@ -12,7 +12,6 @@ import javax.mail.internet.MimeMessage;
 
 
 // https://www.journaldev.com/2532/javamail-example-send-mail-in-java-smtp
-
 // https://offbyone.tistory.com/367
 public class MailTest {
 
@@ -34,9 +33,11 @@ public class MailTest {
         return new PasswordAuthentication("cc-_-@naver.com", "qlxmzoavm123");
       }
     });
-    System.out.println("Session created");
+    System.out.println("Session 생성");
 
-    sendEmail(session, "desire_yo@naver.com","SimpleEmail Testing Subject", "SimpleEmail Testing Body");
+    sendEmail(session, "wishofsun@daum.net",
+        "[JoinJoy] 고객님의 문의사항에 대해 답변 드립니다. ", 
+        "문의하신 게시물에 답변이 등록되었습니다.");
   }
   /**
    * Utility method to send simple HTML email
@@ -46,15 +47,14 @@ public class MailTest {
    * @param body
    */
   public static void sendEmail(Session session, String toEmail, String subject, String body){
-    try
-    {
+    try {
       MimeMessage msg = new MimeMessage(session);
       //set message headers
       msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
       msg.addHeader("format", "flowed");
       msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-      msg.setFrom(new InternetAddress("cc-_-@naver.com", "NoReply-JD"));
+      msg.setFrom(new InternetAddress("cc-_-@naver.com", "JoinJoy"));
 
       //msg.setReplyTo(InternetAddress.parse("cc-_-@naver.com", false));
 
@@ -65,10 +65,10 @@ public class MailTest {
       msg.setSentDate(new Date());
 
       msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-      System.out.println("Message is ready");
+      System.out.println("이메일 발송 준비");
       Transport.send(msg);  
 
-      System.out.println("EMail Sent Successfully!!");
+      System.out.println("이메일 발송 성공!!");
     }
     catch (Exception e) {
       e.printStackTrace();
