@@ -11,6 +11,7 @@ import com.osk.team.service.ClubService;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DefaultClubService implements ClubService {
 
@@ -58,11 +59,14 @@ public class DefaultClubService implements ClubService {
 //            @Override
 //            public Object doInTransaction() throws Exception {
 //                int count = clubDao.update(club);
-//                clubDao.deletePhotos(club.getNo());
+//                clubDao.deleteMembers(club.getNo());
 //
-//                if (club.getPhotos().size() > 0) {
-//                    clubDao.insertPhoto(new Photo());
-//                    //멤버 수정도 추가해야됨(강퇴)
+//                if (club.getMembers().size() > 0) {
+//                    HashMap<String, Object> params = new HashMap<>();
+//                    params.put("clubNo", club.getNo());
+//                    params.put("members", club.getMembers());
+//
+//                    clubDao.insertMembers(params);
 //                }
 //                return count;
 //            }
@@ -91,6 +95,17 @@ public class DefaultClubService implements ClubService {
         return clubDao.findByKeyword(keyword);
     }
 
+
+    @Override
+    public int addWithMember(Map<String, Object> params) throws Exception {
+        return clubDao.insertMember(params);
+    }
+
+    @Override
+    public List<Member> getMembers(int clubNo) throws Exception {
+        return clubDao.findMembers(clubNo);
+    }
+
     @Override
     public int deletePhotos(int clubNo) throws Exception {
         return clubDao.deletePhotos(clubNo);
@@ -107,20 +122,19 @@ public class DefaultClubService implements ClubService {
                 params.put("clubNo", clubNo);
                 params.put("photos", photos);
 
-                return clubDao.insertMember(params);
+                return clubDao.insertMember(null);
             }
         });
     }
 
-
     //현재 인원 관리파트
     @Override
-    public int deleteMember(int clubNo) throws Exception {
+    public int deleteMembers(int clubNo) throws Exception {
         return clubDao.deleteMembers(clubNo);
     }
 
     @Override
-    public int updateMember(int clubNo, List<Member> members) throws Exception {
+    public int updateMembers(int clubNo, List<Member> members) throws Exception {
         return (int) transactionTemplate.execute(new TransactionCallback() {
             @Override
             public Object doInTransaction() throws Exception {
@@ -130,7 +144,7 @@ public class DefaultClubService implements ClubService {
                 params.put("clubNo", clubNo);
                 params.put("members", members);
 
-                return clubDao.insertMember(params);
+                return clubDao.insertMembers(params);
             }
         });
     }

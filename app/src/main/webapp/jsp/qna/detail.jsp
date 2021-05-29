@@ -1,6 +1,3 @@
-<%@page import="com.osk.team.service.QnaService"%>
-<%@page import="com.osk.team.domain.Member"%>
-<%@page import="com.osk.team.domain.Qna"%>
 <%@ page language="java" 
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
@@ -10,13 +7,14 @@
 <html>
 <head>
 <title>QnA 상세</title>
-<jsp:useBean id="loginUser" class="com.osk.team.domain.Member" scope="session"/>
-
 <c:if test="${not empty loginUser and loginUser.no == qna.writer.no or loginUser.power == 1 }">
 
 </head>
 <body>
 <h1>QnA 게시글 상세보기(JSP + JSP 액션태그 + EL)</h1>
+<form action='send' method='post'>
+  <input type='submit' value='메일전송'>
+</form>
 <form action='update' method='post'>
 <table border='1'>
 <tbody>
@@ -44,11 +42,11 @@
 
 </c:if>
 
-<!--  <c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}>
+<c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}">
     <tr>
       <td colspan='5'>해당 게시자가 아닙니다.</td>
     </tr>
-</c:if>-->
+</c:if>
 
 <p><a href='list'>목록</a></p>
 

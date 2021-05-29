@@ -3,7 +3,6 @@ package com.osk.team.service.impl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 //import com.osk.team.domain.Photo;
 import com.osk.team.dao.MemberDao;
 import com.osk.team.domain.Member;
@@ -48,6 +47,12 @@ public class DefaultMemberService implements MemberService {
     params.put("password", password);
 
     return memberDao.findByEmailPassword(params);
+  }
+
+  //이메일 조회
+  @Override
+  public Member get(String email) throws Exception {
+    return memberDao.findByEmail(email);
   }
 
   // 변경 업무

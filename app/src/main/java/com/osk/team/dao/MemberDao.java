@@ -1,9 +1,8 @@
 package com.osk.team.dao;
 
-import com.osk.team.domain.Member;
-
 import java.util.List;
 import java.util.Map;
+import com.osk.team.domain.Member;
 
 public interface MemberDao {
 
@@ -27,6 +26,8 @@ public interface MemberDao {
   Member findByNo(int no) throws Exception;
 
   Member findByEmailPassword(Map<String,Object> params) throws Exception;
+
+  Member findByEmail(String email) throws Exception;
 
   int update(Member member) throws Exception;
 

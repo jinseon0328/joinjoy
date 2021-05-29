@@ -1,6 +1,7 @@
 package com.osk.team.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +11,8 @@ import com.osk.team.domain.Member;
 import com.osk.team.service.MemberService;
 
 @SuppressWarnings("serial")
-@WebServlet("/member/delete")
-public class MemberDeleteHandler extends HttpServlet {
+@WebServlet("/member/check")
+public class MemberCheckHandler extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -20,26 +21,22 @@ public class MemberDeleteHandler extends HttpServlet {
     MemberService memberService = (MemberService) request.getServletContext().getAttribute("memberService");
 
     try {
-      int no = Integer.parseInt(request.getParameter("no"));
+      String email = request.getParameter("email");
 
-      Member Member = memberService.get(no);
-      if (Member == null) {
-        throw new Exception("해당 번호의 회원이 없습니다.");
+      Member m = memberService.get(email);
+
+      response.setContentType("text/plain;charset=UTF-8");
+      PrintWriter out = response.getWriter();
+
+      if (m == null) {
+        out.print("no");
+      } else {
+        out.print("yes");
       }
 
-      // 회원 관리를 관리자가 할 경우 모든 회원의 정보 변경 가능
-      Member loginUser = (Member) request.getSession().getAttribute("loginUser");
-      if (Member.getNo() != loginUser.getNo()) {
-        throw new Exception("삭제 권한이 없습니다!");
-      }
-
-      memberService.delete(no);
-
-      response.sendRedirect("list");
 
     } catch (Exception e) {
       throw new ServletException(e);
     }
   }
 }
-

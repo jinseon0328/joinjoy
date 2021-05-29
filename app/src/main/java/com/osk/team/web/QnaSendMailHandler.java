@@ -1,4 +1,5 @@
 package com.osk.team.web;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 import javax.mail.Authenticator;
@@ -8,14 +9,31 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import com.osk.team.domain.Member;
+import com.osk.team.service.QnaService;
 
 
 // https://www.journaldev.com/2532/javamail-example-send-mail-in-java-smtp
 // https://offbyone.tistory.com/367
-public class QnaSendMailHandler {
+@SuppressWarnings("serial")
+@WebServlet("/qna/send")
+public class QnaSendMailHandler extends HttpServlet {
 
-  public static void main(String[] args) {
-    System.out.println("SimpleEmail Start");
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+    QnaService qnaService = (QnaService) request.getServletContext().getAttribute("qnaService");
+
+    HttpServletRequest httpRequest = request;
+    Member loginUser = (Member) httpRequest.getSession().getAttribute("loginUser");
+
+    System.out.println("이메일 발송 시작");
 
     Properties props = System.getProperties();
     props.put("mail.smtp.host", "smtp.naver.com");
@@ -29,12 +47,12 @@ public class QnaSendMailHandler {
     Session session = Session.getDefaultInstance(props, new Authenticator() {
       @Override
       protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication("cc-_-@naver.com", "qlxmzoavm123");
+        return new PasswordAuthentication("@naver.com", "");
       }
     });
     System.out.println("Session 생성");
 
-    sendEmail(session, "wishofsun@daum.net",
+    sendEmail(session, "loginUser",
         "[JoinJoy] 고객님의 문의사항에 대해 답변 드립니다. ", 
         "문의하신 게시물에 답변이 등록되었습니다.");
   }
@@ -53,7 +71,7 @@ public class QnaSendMailHandler {
       msg.addHeader("format", "flowed");
       msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-      msg.setFrom(new InternetAddress("cc-_-@naver.com", "JoinJoy"));
+      msg.setFrom(new InternetAddress("@naver.com", "JoinJoy"));
 
       //msg.setReplyTo(InternetAddress.parse("cc-_-@naver.com", false));
 

@@ -10,34 +10,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 @SuppressWarnings("serial")
-@WebServlet("/club/delete")
-public class ClubDeleteHandler extends HttpServlet {
+@WebServlet("/club/join")
+public class ClubJoinHandler extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ClubService clubService = (ClubService) request.getServletContext().getAttribute("clubService");
 
         try {
             int no = Integer.parseInt(request.getParameter("no"));
 
-            Club oldClub = clubService.get(no);
-            if (oldClub == null) {
-                throw new Exception("해당 번호의 클럽이 없습니다.");
-            }
-
             Member loginUser = (Member) request.getSession().getAttribute("loginUser");
+            Club club = new Club();
 
-            if (oldClub.getWriter().getNo() != loginUser.getNo() && loginUser.getPower() == 0) {
-                throw new Exception("삭제 권한이 없습니다.");
-            }
+            System.out.println(no);
+            System.out.println(loginUser.getNo());
 
-            clubService.delete(no);
+            HashMap<String, Object> params = new HashMap<>();
+            params.put("memberNo", loginUser.getNo());
+            params.put("clubNo", no);
 
+            clubService.addWithMember(params);
             response.sendRedirect("list");
-
         } catch (Exception e) {
             throw new ServletException(e);
         }

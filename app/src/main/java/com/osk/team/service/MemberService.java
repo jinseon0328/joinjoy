@@ -1,8 +1,7 @@
 package com.osk.team.service;
 
-import com.osk.team.domain.Member;
-
 import java.util.List;
+import com.osk.team.domain.Member;
 
 public interface MemberService {
 
@@ -17,6 +16,8 @@ public interface MemberService {
   Member get(int no) throws Exception;
 
   Member get(String email, String password) throws Exception;
+
+  Member get(String email) throws Exception;
 
   int update(Member member) throws Exception;
 
