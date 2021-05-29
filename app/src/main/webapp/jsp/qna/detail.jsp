@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<%@page import="com.osk.team.service.QnaService"%>
+<%@page import="com.osk.team.domain.Member"%>
+<%@page import="com.osk.team.domain.Qna"%>
+>>>>>>> 376c87cad1baad46699ac45b7ccd51166aab9cf0
 <%@ page language="java" 
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
@@ -7,6 +13,11 @@
 <html>
 <head>
 <title>QnA 상세</title>
+<<<<<<< HEAD
+=======
+<jsp:useBean id="loginUser" class="com.osk.team.domain.Member" scope="session"/>
+
+>>>>>>> 376c87cad1baad46699ac45b7ccd51166aab9cf0
 <c:if test="${not empty loginUser and loginUser.no == qna.writer.no or loginUser.power == 1 }">
 
 </head>
@@ -42,11 +53,19 @@
 
 </c:if>
 
+<<<<<<< HEAD
 <c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}">
     <tr>
       <td colspan='5'>해당 게시자가 아닙니다.</td>
     </tr>
 </c:if>
+=======
+<!--  <c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}>
+    <tr>
+      <td colspan='5'>해당 게시자가 아닙니다.</td>
+    </tr>
+</c:if>-->
+>>>>>>> 376c87cad1baad46699ac45b7ccd51166aab9cf0
 
 <p><a href='list'>목록</a></p>
 
