@@ -30,20 +30,13 @@ public class MailTest {
     Session session = Session.getDefaultInstance(props, new Authenticator() {
       @Override
       protected PasswordAuthentication getPasswordAuthentication() {
-<<<<<<< HEAD
         return new PasswordAuthentication("보낼 메일 주소", "");
-=======
-        return new PasswordAuthentication("cc-_-@naver.com", "qlxmzoavm123");
->>>>>>> 376c87cad1baad46699ac45b7ccd51166aab9cf0
       }
     });
     System.out.println("Session 생성");
 
-<<<<<<< HEAD
     sendEmail(session, "받을 메일 주소",
-=======
-    sendEmail(session, "wishofsun@daum.net",
->>>>>>> 376c87cad1baad46699ac45b7ccd51166aab9cf0
+
         "[JoinJoy] 고객님의 문의사항에 대해 답변 드립니다. ", 
         "문의하신 게시물에 답변이 등록되었습니다.");
   }
@@ -62,15 +55,9 @@ public class MailTest {
       msg.addHeader("format", "flowed");
       msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-<<<<<<< HEAD
       msg.setFrom(new InternetAddress("보낼 메일 주소", "JoinJoy"));
 
       //msg.setReplyTo(InternetAddress.parse("보낼 메일 주소", false));
-=======
-      msg.setFrom(new InternetAddress("cc-_-@naver.com", "JoinJoy"));
-
-      //msg.setReplyTo(InternetAddress.parse("cc-_-@naver.com", false));
->>>>>>> 376c87cad1baad46699ac45b7ccd51166aab9cf0
 
       msg.setSubject(subject, "UTF-8");
 
