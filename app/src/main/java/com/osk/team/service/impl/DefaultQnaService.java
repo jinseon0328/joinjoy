@@ -1,10 +1,12 @@
 package com.osk.team.service.impl;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.osk.team.dao.QnaDao;
 import com.osk.team.domain.Qna;
 import com.osk.team.service.QnaService;
 
+@Service
 public class DefaultQnaService implements QnaService {
 
   QnaDao qnaDao;

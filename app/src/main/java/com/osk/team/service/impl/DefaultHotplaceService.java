@@ -3,9 +3,11 @@ package com.osk.team.service.impl;
 import com.osk.team.dao.HotplaceDao;
 import com.osk.team.domain.Hotplace;
 import com.osk.team.service.HotplaceService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DefaultHotplaceService implements HotplaceService {
 
     HotplaceDao hotplaceDao;

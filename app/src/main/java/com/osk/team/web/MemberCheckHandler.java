@@ -16,7 +16,7 @@ public class MemberCheckHandler extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+          throws ServletException, IOException {
 
     MemberService memberService = (MemberService) request.getServletContext().getAttribute("memberService");
 
@@ -33,7 +33,6 @@ public class MemberCheckHandler extends HttpServlet {
       } else {
         out.print("yes");
       }
-
 
     } catch (Exception e) {
       throw new ServletException(e);

@@ -8,15 +8,6 @@ public interface MemberDao {
 
   int insert(Member member) throws Exception;
 
-  //int insertPhoto(Photo photo) throws Exception;
-
-  //int updatePhoto(Photo photo) throws Exception;
-
-  //static int deletePhoto(int no) throws Exception {
-  // TODO Auto-generated method stub
-  //  return 0;
-  //}
-
   Member membermno() throws Exception;
 
   List<Member> list(String keyword) throws Exception;
@@ -34,6 +25,5 @@ public interface MemberDao {
   int delete(int no) throws Exception;
 
   Member findByName(String name) throws Exception;
-
 
 }

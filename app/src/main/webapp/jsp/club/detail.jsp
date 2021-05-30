@@ -16,13 +16,49 @@
         crossorigin="anonymous"></script>
 
 <c:if test="${not empty club}">
-    <c:if test="${not empty loginUser and loginUser.no != club.writer.no}">
-        <form action="join" method="post">
-            <input type="text" name="no" value="${club.no}" hidden>
-            <input type="text" name="loginUser" value="${loginUser.no}" hidden>
-            <input type="submit" value="클럽 참여">
-        </form>
+
+<!--클럽참여 관련-->
+<c:if test="${club.total != club.nowTotal}">
+    <c:forEach items="${clubMembers}" var="cm">
+        <c:if test="${loginUser.no == cm.no}">
+            <button type="button" class="btn btn-secondary btn-lg" disabled>클럽 참여중</button>
+        </c:if>
+    </c:forEach>
+</c:if>
+
+<c:if test="${club.total == club.nowTotal and loginUser.no != club.writer.no}">
+    <button type="button" class="btn btn-secondary btn-lg" disabled>클럽 참여불가</button>
+</c:if>
+
+<c:if test="${not empty loginUser and loginUser.no != club.writer.no and club.total > club.nowTotal}">
+    <form action="join" method="post">
+        <input type="text" name="no" value="${club.no}" hidden>
+        <input type="text" name="loginUser" value="${loginUser.no}" hidden>
+        <input class="btn btn-primary" type="submit" value="클럽 참여">
+    </form>
+</c:if>
+
+<!--클럽신고 관련-->
+<c:forEach items="${clubMembers}" var="cm">
+<c:if test="${not empty loginUser and loginUser.no != club.writer.no and loginUser.no == cm.no}">
+                <form action="report" method="post">
+                    <input type="text" name="no" value="${club.no}" hidden>
+                    <input type="text" name="clubWriterNo" value="${club.writer.no}" hidden>
+                    <input type="number" name="result" value="${0}" hidden>
+
+                    <p>회원님의 신고는 익명으로 처리됩니다.<br>
+                        해당되는 신고 유형을 선택하기시 바랍니다.</p>
+                    신고 사유:<br>
+                    <input type="radio" name="reason" value="불법 또는 규체 상품 판매">불법 또는 규체 상품 판매 <br/>
+                    <input type="radio" name="reason" value="지적 재산권 침해">지적 재산권 침해 <br/>
+                    <input type="radio" name="reason" value="사기 또는 거짓">사기 또는 거짓 <br/>
+                    <input type="radio" name="reason" value="스팸">스팸 <br/>
+                    <input class="btn btn-primary" type="submit" value="클럽 신고">
+<%--                    <button type="button" class="navyBtn" name="report" onClick="location.href='report'"/>--%>
+                </form>
+
     </c:if>
+    </c:forEach>
 
     팀원:<br>
     <jsp:include page="/jsp/club/member_list.jsp"/>
@@ -36,28 +72,28 @@
             테마: <input name='theme' id="themeid" value='${club.theme}' readonly><br>
             제목: <input type='text' name='title' value='${club.title}'><br>
             내용: <textarea name='content' rows='10' cols='60'>${club.content}</textarea><br>
-            인원수: ${club.total} 명 <br>
+            인원수 / 현재인원수: ${club.total} / ${club.nowTotal} <br>
             <tr>
                 <th>사진</th>
                 <c:if test="${not empty club.photos}">
                 <%System.out.println("11");%>
                 <c:forEach items="${club.photos}" var="p">
                 <%System.out.println("22");%>
-                <c:set var="photo254x178Url">../upload/${p.name}_254x178.jpg</c:set>
+                <c:set var="photo254x178Url">../../upload/${p.name}_254x178.jpg</c:set>
                 <%System.out.println("33");%>
                 <td><img src='${photo254x178Url}'><br>
                             <%System.out.println("44");%>
                     </c:forEach>
                     </c:if>
             </tr>
-            </tbody>
 
             <c:if test="${not empty loginUser and loginUser.no == club.writer.no or loginUser.power == 1 }">
 
                 <tfoot>
                 <tr>
                     <td colspan='2'>
-                        <input type='submit' value='변경'><a href='delete?no=${club.no}'>삭제</a>
+                        <input type='submit' value='변경'>
+                        <a href='delete?no=${club.no}'>삭제</a>
                     </td>
                 </tr>
                 </tfoot>

@@ -9,10 +9,6 @@ public interface MemberService {
 
   List<Member> list(String keyword) throws Exception;
 
-  //int addWithPhoto(Photo photo) throws Exception;
-
-  //Member getMemberMno() throws Exception;//오트 인트리먼츠 값을 꺼내기 위해 만듦
-
   Member get(int no) throws Exception;
 
   Member get(String email, String password) throws Exception;
@@ -24,9 +20,5 @@ public interface MemberService {
   int delete(int no) throws Exception;
 
   Member search(String name) throws Exception;
-
-  //int deletePhoto(int no) throws Exception;
-
-  //int updatePhoto(int no, String photo) throws Exception;
 
 }
