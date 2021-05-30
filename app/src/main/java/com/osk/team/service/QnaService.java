@@ -15,4 +15,6 @@ public interface QnaService {
 
   int delete(int no) throws Exception;
 
+  List<Qna> search(String keyword) throws Exception;
+
 }

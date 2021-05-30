@@ -21,7 +21,13 @@ public class QnaListHandler extends HttpServlet {
     QnaService qnaService = (QnaService) request.getServletContext().getAttribute("qnaService");
 
     try {
-      List<Qna> qnas = qnaService.listAll();
+      String myContent = request.getParameter("keyword");
+      List<Qna> qnas = null;
+      if (myContent != null) {
+        qnas = qnaService.search(myContent);
+      } else {
+        qnas = qnaService.listAll();
+      }
 
       request.setAttribute("list", qnas);
 

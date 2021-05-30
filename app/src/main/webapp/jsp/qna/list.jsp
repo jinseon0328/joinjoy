@@ -14,6 +14,10 @@
 <body>
 <h1>QnA 목록</h1>
 <p><a href='add'>QnA 작성</a></p> 
+<form action='list' method='get'>
+<input type='hidden' name='keyword' value='${loginUser.no}'> 
+<button>내 글 보기</button>
+</form>
 <table border='1'>
 <thead>
 <tr>
@@ -31,9 +35,5 @@
 </c:forEach>
       </tbody>
       </table>
-<form action='list' method='get'>
-<input type='search' name='keyword' value='${param.keyword}'> 
-<button>내 글 보기</button>
-</form>
       </body>
       </html>
