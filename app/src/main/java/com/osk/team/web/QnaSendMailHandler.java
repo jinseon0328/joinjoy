@@ -14,8 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.osk.team.domain.Member;
-import com.osk.team.service.QnaService;
 
 
 // https://www.journaldev.com/2532/javamail-example-send-mail-in-java-smtp
@@ -27,11 +25,6 @@ public class QnaSendMailHandler extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-
-    QnaService qnaService = (QnaService) request.getServletContext().getAttribute("qnaService");
-
-    HttpServletRequest httpRequest = request;
-    Member loginUser = (Member) httpRequest.getSession().getAttribute("loginUser");
 
     System.out.println("이메일 발송 시작");
 
@@ -47,15 +40,21 @@ public class QnaSendMailHandler extends HttpServlet {
     Session session = Session.getDefaultInstance(props, new Authenticator() {
       @Override
       protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication("@naver.com", "");
+        return new PasswordAuthentication("발송이메일", "");
       }
     });
     System.out.println("Session 생성");
+    System.out.println(request.getParameter("email"));
 
-    sendEmail(session, "loginUser",
-
+    sendEmail(session, request.getParameter("email"),
         "[JoinJoy] 고객님의 문의사항에 대해 답변 드립니다. ", 
-        "문의하신 게시물에 답변이 등록되었습니다.");
+        request.getParameter("content") + "\n" + request.getParameter("answer"));
+
+    try {
+      response.sendRedirect("list");
+    } catch (Exception e) {
+      throw new ServletException(e);
+    }
   }
   /**
    * Utility method to send simple HTML email
@@ -72,7 +71,7 @@ public class QnaSendMailHandler extends HttpServlet {
       msg.addHeader("format", "flowed");
       msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-      msg.setFrom(new InternetAddress("@naver.com", "JoinJoy"));
+      msg.setFrom(new InternetAddress("발송이메일", "JoinJoy"));
 
       //msg.setReplyTo(InternetAddress.parse("cc-_-@naver.com", false));
 
@@ -87,6 +86,7 @@ public class QnaSendMailHandler extends HttpServlet {
       Transport.send(msg);  
 
       System.out.println("이메일 발송 성공!!");
+
     }
     catch (Exception e) {
       e.printStackTrace();

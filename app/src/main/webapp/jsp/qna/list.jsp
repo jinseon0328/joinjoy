@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>QnA 목록</h1>
-<p><a href='add'>QnA 작성</a></p>   
+<p><a href='add'>QnA 작성</a></p> 
 <table border='1'>
 <thead>
 <tr>
@@ -31,7 +31,9 @@
 </c:forEach>
       </tbody>
       </table>
-      <form action='update' method='get'>
-      </form>
+<form action='list' method='get'>
+<input type='search' name='keyword' value='${param.keyword}'> 
+<button>내 글 보기</button>
+</form>
       </body>
       </html>

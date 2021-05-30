@@ -12,9 +12,6 @@
 </head>
 <body>
 <h1>QnA 게시글 상세보기(JSP + JSP 액션태그 + EL)</h1>
-<form action='send' method='post'>
-  <input type='submit' value='메일전송'>
-</form>
 <form action='update' method='post'>
 <table border='1'>
 <tbody>
@@ -27,7 +24,6 @@
 <c:if test="${qna.getAnswer() != null or loginUser.power == 1 }">
 <tr><th>답변일</th> <td>${qna.answerDate}</td></tr>
 <tr><th>답변내용</th> <td><textarea name='answer' rows='10' cols='60'>${qna.answer}</textarea></td></tr>
-
 </c:if>
 </tbody>
 
@@ -38,15 +34,19 @@
         </c:if>
            <a href='delete?no=${qna.no}'>삭제</a>
         </td></tr>
+</table>
+</form>
+<c:if test="${loginUser.power == 1 }">
+<form action='send' method='post'>
+<input type='hidden' name='content' value='${qna.content}' readonly>
+<input type='text' name='email' value='${qna.writer.email}' readonly>
+<input type='hidden' name='answer' value='${qna.answer}'>
+<input type='submit' value='메일전송'>
+</form>
+</c:if>
         </tfoot>
-
 </c:if>
 
-<c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}">
-    <tr>
-      <td colspan='5'>해당 게시자가 아닙니다.</td>
-    </tr>
-</c:if>
 
 <p><a href='list'>목록</a></p>
 
