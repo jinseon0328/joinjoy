@@ -6,7 +6,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>QnA 상세</title>
+.QnA {
+  width: 126px;
+  height: 32px;
+  margin: 44px 69px 32px 318px;
+  font-family: AppleSDGothicNeoB00;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+}
+
+ div {
+  width: 1920px;
+  height: 73px;
+  margin: 0 0 44px;
+  padding: 16px 100px 15px 83px;
+  background-color: #20273b;
+}
+
+    <title class="QnA">QnA 상세</title>
     <c:if test="${not empty loginUser and loginUser.no == qna.writer.no or loginUser.power == 1 }">
 
 </head>

@@ -18,7 +18,7 @@ public class QnaSendMailHandler {
 
   @RequestMapping("/qna/send")
   public String execute(HttpServletRequest request, HttpServletResponse response)
-          throws Exception {
+      throws Exception {
 
     System.out.println("이메일 발송 시작");
 
@@ -26,7 +26,7 @@ public class QnaSendMailHandler {
     props.put("mail.smtp.host", "smtp.naver.com");
     props.put("mail.smtp.socketFactory.port", "465"); //SSL Port
     props.put("mail.smtp.socketFactory.class",
-            "javax.net.ssl.SSLSocketFactory"); //SSL Factory Class
+        "javax.net.ssl.SSLSocketFactory"); //SSL Factory Class
     props.put("mail.smtp.auth", "true"); //Enabling SMTP Authentication
     props.put("mail.smtp.port", "465"); //SMTP Port
 
@@ -34,15 +34,15 @@ public class QnaSendMailHandler {
     Session session = Session.getDefaultInstance(props, new Authenticator() {
       @Override
       protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication("cc-_-@naver.com", "qlxmqlxm1");
+        return new PasswordAuthentication("이메일", "");
       }
     });
     System.out.println("Session 생성");
     System.out.println(request.getParameter("email"));
 
     sendEmail(session, request.getParameter("email"),
-            "[JoinJoy] 고객님의 문의사항에 대해 답변 드립니다. ",
-            request.getParameter("content") + "\n" + request.getParameter("answer"));
+        "[JoinJoy] 고객님의 문의사항에 대해 답변 드립니다. ",
+        request.getParameter("content") + "\n" + request.getParameter("answer"));
 
     return "redirect:list";
   }
@@ -55,7 +55,7 @@ public class QnaSendMailHandler {
       msg.addHeader("format", "flowed");
       msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-      msg.setFrom(new InternetAddress("cc-_-@naver.com", "JoinJoy"));
+      msg.setFrom(new InternetAddress("이메일", "JoinJoy"));
 
       msg.setSubject(subject, "UTF-8");
 
