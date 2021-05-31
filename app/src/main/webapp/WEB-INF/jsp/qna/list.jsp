@@ -33,63 +33,123 @@
   background-color: #20273b;
 }
 
+button.btn.btn-primary.btn-sm {
+    position: fixed;
+    top: 16px;
+    left: 1740px;
+}
 
 .btn-primary {
     width: 80px;
     height: 40px;
-    margin: 0 0 2px 235px;
     padding: 8px 15px 11px;
     border-radius: 10px;
     background-color:#4d90eb;
     border-color:#4d90eb;
-    position:absolute;
-    right:0px;
 }
-.btn-primary:
+
+
+.logo-box {
+    position: fixed;
+    top:20.3px;
+    left: 83px;
+}
+ 
+.logo {
+    width: 150px;
+    height: 38px;
+}
+
+.hotplace-box {
+    position: fixed;
+    top:24px;
+    left: 883px;
+}
+ 
+.hotplace {
+    width: 80px;
+    height: 21px;
+}
+
+.community-box {
+    position: fixed;
+    top:24px;
+    left: 1037px;
+}
+ 
+.community {
+    width: 64px;
+    height: 21px;
+}
+
+.discount-box {
+    position: fixed;
+    top:24px;
+    left: 1177px;
+}
+ 
+.discount {
+    width: 64px;
+    height: 21px;
+}
+
+.qna-box {
+    position: fixed;
+    top:24px;
+    left: 1317px;
+}
+ 
+.qna {
+    width: 64px;
+    height: 21px;
+}
+
+.faq-box {
+    position: fixed;
+    top:24px;
+    left: 1457px;
+}
+ 
+.faq {
+    width: 29px;
+    height: 21px;
+}
 
 </style>
-</div>
-    <div class="black"><button type="button" class="btn btn-primary btn-sm">logout</button></div>
-    <title>QnA 리스트</title>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">JoinJoy</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav" padding-top: .9rem; padding-bottom: .9rem;>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-             <li class="nav-item">
-        <button type="button" class="btn btn-primary btn-sm">logout</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
 <header>
-<div class="joinjoy"></div>
+    <div class="black"> 
+            <div class="logo-box">
+            <img src="../../images/joinjoylogo-bl.png" alt="logo"  class="logo">
+            </div>
+            <div class="hotplace-box">
+            <img src="../../images/hotplace-bl.png" alt="hotplace"  class="hotplace">
+            </div>
+            <div class="community-box">
+            <img src="../../images/community-bl.png" alt="community"  class="community">
+            </div>
+            <div class="discount-box">
+            <img src="../../images/discount-bl.png" alt="discount"  class="discount">
+            </div>
+            <div class="qna-box">
+            <img src="../../images/qna-bl.png" alt="qna"  class="qna">
+            </div>
+            <div class="faq-box">
+            <img src="../../images/faq-bl.png" alt="faq"  class="faq">
+            </div>
+            
+      <button type="button" class="btn btn-primary btn-sm">logout</button>
+      </div>
+    
 
 </header>
-
-<h1 class="QnA">QnA 리스트</h1>
+<title>QnA 리스트</title>
+<!-- <h1 class="QnA">QnA 리스트</h1>
 <p><a href='form'>QnA 작성</a></p>
 <form action='list' method='post'>
 <input type='hidden' name='keyword' value='${loginUser.no}'>
-    <button type="button" class="btn btn-secondary btn-sm">내 글 보기</button>
+    <button type="button" class="btn btn-secondary">내 글 보기</button>
 </form>
 <table border='1'>
     <thead>
@@ -109,4 +169,4 @@
     </tbody>
 </table>
 </body>
-</html>
+</html> -->
