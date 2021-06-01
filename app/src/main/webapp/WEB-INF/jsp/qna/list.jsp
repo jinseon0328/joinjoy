@@ -121,22 +121,22 @@ button.btn.btn-primary.btn-sm {
 <header>
     <div class="black"> 
             <div class="logo-box">
-            <img src="../../images/joinjoylogo-bl.png" alt="logo"  class="logo">
+            <a href="location.href='../main'"><img src="../../images/joinjoylogo-bl.png" alt="logo"  class="logo"></a>
             </div>
             <div class="hotplace-box">
-            <img src="../../images/hotplace-bl.png" alt="hotplace"  class="hotplace">
+            <a href="location.href='../hotplace/list'"><img src="../../images/hotplace-bl.png" alt="hotplace"  class="hotplace">
             </div>
             <div class="community-box">
-            <img src="../../images/community-bl.png" alt="community"  class="community">
+            <a href="location.href='../community/list'"><img src="../../images/community-bl.png" alt="community"  class="community">
             </div>
             <div class="discount-box">
-            <img src="../../images/discount-bl.png" alt="discount"  class="discount">
+            <a href="location.href='../discount/list'"><img src="../../images/discount-bl.png" alt="discount"  class="discount">
             </div>
             <div class="qna-box">
-            <img src="../../images/qna-bl.png" alt="qna"  class="qna">
+            <a href="../list"><img src="../../images/qna-bl.png" alt="qna"  class="qna">
             </div>
             <div class="faq-box">
-            <img src="../../images/faq-bl.png" alt="faq"  class="faq">
+            <a href="location.href='../faq/list'"><img src="../../images/faq-bl.png" alt="faq"  class="faq">
             </div>
             
       <button type="button" class="btn btn-primary btn-sm">logout</button>
@@ -145,10 +145,10 @@ button.btn.btn-primary.btn-sm {
 
 </header>
 <title>QnA 리스트</title>
-<!-- <h1 class="QnA">QnA 리스트</h1>
+<h1 class="QnA">QnA 리스트</h1>
 <p><a href='form'>QnA 작성</a></p>
 <form action='list' method='post'>
-<input type='hidden' name='keyword' value='${loginUser.no}'>
+<input type='text' name='keyword' value='${loginUser.no}'>
     <button type="button" class="btn btn-secondary">내 글 보기</button>
 </form>
 <table border='1'>
@@ -169,4 +169,4 @@ button.btn.btn-primary.btn-sm {
     </tbody>
 </table>
 </body>
-</html> -->
+</html>
