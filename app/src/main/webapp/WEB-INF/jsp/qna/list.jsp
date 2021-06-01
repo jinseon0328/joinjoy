@@ -34,10 +34,25 @@
 }
 
 button.btn.btn-primary.btn-sm {
-    position: fixed;
+    position: absolute;
     top: 16px;
     left: 1740px;
 }
+
+button.btn.btn-secondary-add {
+  position: fixed;
+  top: 117px;
+  right: 320px;
+
+}
+
+button.btn.btn-secondary {
+  position: fixed;
+  top: 117px;
+  right: 200x;
+
+}
+
 
 .btn-primary {
     width: 80px;
@@ -48,9 +63,32 @@ button.btn.btn-primary.btn-sm {
     border-color:#4d90eb;
 }
 
+.btn.btn-secondary {
+    width: 80px;
+    height: 40px;
+    padding: 8px 15px 11px;
+    border-radius: 10px;
+    background-color:#4d90eb;
+    border-color:#4d90eb;
+}
+
+.btn.btn-secondary-add {
+    width: 80px;
+    height: 40px;
+    padding: 8px 15px 11px;
+    border-radius: 10px;
+    background-color:#4d90eb;
+    border-color:#4d90eb;
+
+}
+    
+.btn btn-outline-primary {
+
+}
+
 
 .logo-box {
-    position: fixed;
+    position: absolute;
     top:20.3px;
     left: 83px;
 }
@@ -61,7 +99,7 @@ button.btn.btn-primary.btn-sm {
 }
 
 .hotplace-box {
-    position: fixed;
+    position: absolute;
     top:24px;
     left: 883px;
 }
@@ -72,7 +110,7 @@ button.btn.btn-primary.btn-sm {
 }
 
 .community-box {
-    position: fixed;
+    position: absolute;
     top:24px;
     left: 1037px;
 }
@@ -83,7 +121,7 @@ button.btn.btn-primary.btn-sm {
 }
 
 .discount-box {
-    position: fixed;
+    position: absolute;
     top:24px;
     left: 1177px;
 }
@@ -94,7 +132,7 @@ button.btn.btn-primary.btn-sm {
 }
 
 .qna-box {
-    position: fixed;
+    position: absolute;
     top:24px;
     left: 1317px;
 }
@@ -105,7 +143,7 @@ button.btn.btn-primary.btn-sm {
 }
 
 .faq-box {
-    position: fixed;
+    position: absolute;
     top:24px;
     left: 1457px;
 }
@@ -114,6 +152,15 @@ button.btn.btn-primary.btn-sm {
     width: 29px;
     height: 21px;
 }
+.table {
+  width: 1281px;
+  height: 59px;
+  margin: 4px 320px 10px 319px;
+  padding: 10px 40px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+}
+
 
 </style>
 </head>
@@ -121,37 +168,49 @@ button.btn.btn-primary.btn-sm {
 <header>
     <div class="black"> 
             <div class="logo-box">
-            <a href="location.href='../main'"><img src="../../images/joinjoylogo-bl.png" alt="logo"  class="logo"></a>
+            <a href="location.href='../main'"><img src="../../images/joinjoylogo-bl.png" alt="logo"  class="logo">
+            </a>
             </div>
             <div class="hotplace-box">
-            <a href="location.href='../hotplace/list'"><img src="../../images/hotplace-bl.png" alt="hotplace"  class="hotplace">
+            <a href="../hotplace/list"><img src="../../images/hotplace-bl.png" alt="hotplace"  class="hotplace">
+            </a>
             </div>
             <div class="community-box">
-            <a href="location.href='../community/list'"><img src="../../images/community-bl.png" alt="community"  class="community">
+            <a href="../community/list"><img src="../../images/community-bl.png" alt="community"  class="community">
+            </a>
+            <div class="dropdown-menu">
+            <a clss="dropdown-item" href="../discount/list">꿀팁 게시판</a>
+            <a clss="dropdown-item" href="../discount/list">세컨핸즈샵</a>
+            <a clss="dropdown-item" href="../discount/list">자유 게시판</a>
+            </div>
             </div>
             <div class="discount-box">
-            <a href="location.href='../discount/list'"><img src="../../images/discount-bl.png" alt="discount"  class="discount">
+            <a href="../discount/list"><img src="../../images/discount-bl.png" alt="discount"  class="discount">
+            </a>
             </div>
             <div class="qna-box">
-            <a href="../list"><img src="../../images/qna-bl.png" alt="qna"  class="qna">
+            <a href="../qna/list"><img src="../../images/qna-bl.png" alt="qna"  class="qna">
+            </a>
             </div>
             <div class="faq-box">
-            <a href="location.href='../faq/list'"><img src="../../images/faq-bl.png" alt="faq"  class="faq">
+            <a href="../faq/list"><img src="../../images/faq-bl.png" alt="faq"  class="faq">
+            </a>
             </div>
             
-      <button type="button" class="btn btn-primary btn-sm">logout</button>
+      <button type="button" onclick="location.href='../member/detail'" class="btn btn-outline-primary">mypage</button>
+      <button type="button" onclick="location.href='../member/logout'" class="btn btn-primary btn-sm">logout</button>
       </div>
-    
-
 </header>
+    
 <title>QnA 리스트</title>
+<body>
 <h1 class="QnA">QnA 리스트</h1>
-<p><a href='form'>QnA 작성</a></p>
+<button type="button" onclick="location.href='add'"class="btn btn-secondary-add">QnA 작성</button>
 <form action='list' method='post'>
-<input type='text' name='keyword' value='${loginUser.no}'>
-    <button type="button" class="btn btn-secondary">내 글 보기</button>
+<input type='hidden' name='keyword' value='${loginUser.no}'>
+    <button type="submit" class="btn btn-secondary-my">내 글 보기</button>
 </form>
-<table border='1'>
+<table class="table table-hover" border='1'>
     <thead>
     <tr>
         <th>번호</th> <th>제목</th> <th>작성자</th> <th>작성일</th>
