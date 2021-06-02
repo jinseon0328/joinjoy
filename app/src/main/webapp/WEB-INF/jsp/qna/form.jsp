@@ -22,7 +22,6 @@
 }
 
 .btn-primary {
-  width: 94px;
   height: 39px;
   margin: 0 0 20px 159px;
   padding: 7px 29px 11px 33px;
@@ -49,6 +48,104 @@
   top: 24px;
 }
 
+#title {
+  width: 1226px;
+  height: 59px;
+  margin: 20px 0 30px;
+  padding: 11px 979px 16px 19px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 28px;
+  top: 82px;;
+}
+
+.photo1 {
+  width: 214px;
+  height: 134px;
+  margin: 30px 39px 30px 0;
+  padding: 49px 88px 48px 89px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 28px;
+  top: 171px;;
+}
+
+.photo2 {
+  width: 214px;
+  height: 134px;
+  margin: 30px 39px 30px 0;
+  padding: 49px 88px 48px 89px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 171px;
+  left: 281px;
+}
+
+.photo3 {
+  width: 214px;
+  height: 134px;
+  margin: 30px 39px 30px 0;
+  padding: 49px 88px 48px 89px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 171px;
+  left: 534px;
+}
+
+.photo4 {
+  width: 214px;
+  height: 134px;
+  margin: 30px 39px 30px 0;
+  padding: 49px 88px 48px 89px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 171px;
+  left: 787px;
+}
+
+.photo5 {
+  width: 214px;
+  height: 134px;
+  margin: 30px 39px 30px 0;
+  padding: 49px 88px 48px 89px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 171px;
+  left: 1040px;
+}
+
+#content {
+  width: 1226px;
+  height: 836px;
+  margin: 30px 0 0;
+  padding: 12px 12px 12px 12px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 335px;
+  left: 28px;
+}
+
+.plus {
+  width: 37px;
+  height: 37px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
 </style>
 
 <head>
@@ -61,15 +158,29 @@
         QnA
         </div>
         <form action="add" method="post">
-        <button type="submit" onclick="../qna/add" class="btn btn-primary">등록</button>
-        </form>
+        <button type="submit" class="btn btn-primary">등록</button>
+           <div class="form-group">
+            <input type="text" id="title" name="title" class="form-control" placeholder="제목을 입력하세요.">
+           </div>
+            <div class="form-group">
+            <textarea class="form-control"  id="content" name="content" placeholder="내용을 입력하세요."></textarea>
+            </div>
+        
+        <div class="photo1">
+            <div class="plus1">
+            </div>
         </div>
-    </div>
-<form action="add" method="post">
-    제목: <input type="text" name="title"><br>
-    내용: <textarea name="content" rows="10" cols="60"></textarea><br>
-    <input type="submit" value="등록">
+        <div class="photo2">
+        </div>
+        <div class="photo3">
+        </div>
+        <div class="photo4">
+        </div>
+        <div class="photo5">
+        </div>
+        <div class="add3">
+        </div>
+
 </form>
-<p><a href='list'>목록</a></p>
 </body>
 </html>

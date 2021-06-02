@@ -36,6 +36,7 @@
       m.memail as writer_email
     from m_qna q
            inner join member m on m.mno=q.mno
+           order by q.m_qno desc
   </select>
 
   <select id="findByKeyword" resultMap="qnaMap" parameterType="string">
@@ -48,6 +49,7 @@
     from m_qna q
            inner join member m on m.mno=q.mno
     where m.mno = #{value}
+    order by q.m_qno desc
   </select>
 
   <update id="update" parameterType="qna">
@@ -74,6 +76,7 @@
     from m_qna q
            inner join member m on m.mno=q.mno
     where q.m_qno = #{value}
+    order by q.m_qno desc
   </select>
 
 
