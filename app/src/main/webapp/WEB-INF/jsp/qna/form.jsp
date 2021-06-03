@@ -12,13 +12,14 @@
 .content1 {
   width: 1283px;
   height: 1199px;
-  margin: 48px 318px 0 319px;
   padding: 23px 29px 28px 28px;
   border-radius: 20px;
   background-color: #f8f8f8;
   position: absolute;
   top: 121px;
   left: 319px; 
+  display: flex;
+
 }
 
 .btn-primary {
@@ -58,20 +59,72 @@
   background-color: #f4f4f4;
   position: absolute;
   left: 28px;
-  top: 82px;;
+  top: 82px;
 }
 
-.photo1 {
-  width: 214px;
-  height: 134px;
-  margin: 30px 39px 30px 0;
-  padding: 49px 88px 48px 89px;
+#photo1 {
+  width: 1226px;
+  height: 50px;
+  margin: 20px 0 30px;
+  padding: 11px 979px 16px 19px;
   border-radius: 10px;
   border: solid 1px #d3d3d3;
   background-color: #f4f4f4;
   position: absolute;
   left: 28px;
-  top: 171px;;
+  top: 150px;
+}
+
+#photo2 {
+  width: 1226px;
+  height: 50px;
+  margin: 20px 0 30px;
+  padding: 11px 979px 16px 19px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 28px;
+  top: 200px;
+}
+
+#photo3 {
+  width: 1226px;
+  height: 50px;
+  margin: 20px 0 30px;
+  padding: 11px 979px 16px 19px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 28px;
+  top: 250px;
+}
+
+.form-control2 {
+  width: 1226px;
+  height: 59px;
+  margin: 20px 0 30px;
+  padding: 11px 979px 16px 19px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 28px;
+  top: 155px;
+}
+
+.form-control3 {
+  width: 1226px;
+  height: 59px;
+  margin: 20px 0 30px;
+  padding: 11px 979px 16px 19px;
+  border-radius: 10px;
+  border: solid 1px #d3d3d3;
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 28px;
+  top: 171px;
 }
 
 .photo2 {
@@ -87,44 +140,7 @@
   left: 281px;
 }
 
-.photo3 {
-  width: 214px;
-  height: 134px;
-  margin: 30px 39px 30px 0;
-  padding: 49px 88px 48px 89px;
-  border-radius: 10px;
-  border: solid 1px #d3d3d3;
-  background-color: #f4f4f4;
-  position: absolute;
-  top: 171px;
-  left: 534px;
-}
 
-.photo4 {
-  width: 214px;
-  height: 134px;
-  margin: 30px 39px 30px 0;
-  padding: 49px 88px 48px 89px;
-  border-radius: 10px;
-  border: solid 1px #d3d3d3;
-  background-color: #f4f4f4;
-  position: absolute;
-  top: 171px;
-  left: 787px;
-}
-
-.photo5 {
-  width: 214px;
-  height: 134px;
-  margin: 30px 39px 30px 0;
-  padding: 49px 88px 48px 89px;
-  border-radius: 10px;
-  border: solid 1px #d3d3d3;
-  background-color: #f4f4f4;
-  position: absolute;
-  top: 171px;
-  left: 1040px;
-}
 
 #content {
   width: 1226px;
@@ -139,11 +155,6 @@
   left: 28px;
 }
 
-.plus {
-  width: 37px;
-  height: 37px;
-  background-color: rgba(0, 0, 0, 0.2);
-}
 
 
 </style>
@@ -166,21 +177,21 @@
             <textarea class="form-control"  id="content" name="content" placeholder="내용을 입력하세요."></textarea>
             </div>
         
-        <div class="photo1">
-            <div class="plus1">
-            </div>
+        <div class="mb-3">
+        <label for="formFileSm" class="form-label"  id="photo1">사진을 첨부하세요.</label>
+        <input class="form-control form-control-sm" id="photo1" type="file" multiple>
         </div>
-        <div class="photo2">
+        <div class="mb-3">
+        <label for="formFileSm" class="form-label" id="photo2" >사진을 첨부하세요.</label>
+        <input class="form-control form-control-sm" id="photo2" type="file">
         </div>
-        <div class="photo3">
+        <div class="mb-3">
+        <label for="formFileSm" class="form-label" id="photo3">사진을 첨부하세요.</label>
+        <input class="form-control form-control-sm" id="photo3" type="file">
         </div>
-        <div class="photo4">
-        </div>
-        <div class="photo5">
-        </div>
-        <div class="add3">
-        </div>
-
-</form>
+        
+        
+    </form>
+    </div>
 </body>
 </html>

@@ -39,7 +39,7 @@
            order by q.m_qno desc
   </select>
 
-  <select id="findByKeyword" resultMap="qnaMap" parameterType="string">
+  <select id="findByKeyword" resultMap="qnaMap" parameterType="map">
     select
       q.m_qno,
       q.m_qtitle,
@@ -48,8 +48,15 @@
       m.memail as writer_email
     from m_qna q
            inner join member m on m.mno=q.mno
-    where m.mno = #{value}
-    order by q.m_qno desc
+     <if test="keyword != null">
+    where 
+      b.title like concat('%', #{keyword},'%')
+      or b.content like concat('%', #{keyword},'%')
+      or m.name like concat('%', #{keyword},'%')
+    </if>
+    
+    order by b.no desc
+    limit #{offset}, #{length}
   </select>
 
   <update id="update" parameterType="qna">
