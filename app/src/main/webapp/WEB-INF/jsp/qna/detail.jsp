@@ -9,23 +9,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <html>
 <head>
-<style>
+<style> 
 
-.content1 {
-  width: 1283px;
-  height: 1199px;
-  padding: 23px 29px 28px 28px;
-  border-radius: 20px;
-  background-color: #f8f8f8;
-  position: absolute;
-  top: 121px;
-  left: 319px; 
-  display: flex;
-
-}
-
-.title {
-  margin: 1px 54px 26px 0;
+.title1 {
+  width: 120px;
+  height: 32px;
+  margin: 72px 75px 32px 318px;
   font-family: AppleSDGothicNeoB00;
   font-size: 24px;
   font-weight: normal;
@@ -35,46 +24,272 @@
   letter-spacing: normal;
   text-align: left;
   color: #20273b;
+  top: 145px;
+  left: 318px;
+  }
+  .btn-primary {   
+  width: 80px;
+  height: 40px;
+  
+  padding: 8px 13px 11px 19px;
+  border-radius: 10px;
+  background-color: #4d90eb;
   position: absolute;
-  left: 28px;
-  top: 24px;
+  top: 149px;
+  right: 410px;
 }
 
-#title {
-  width: 1226px;
+.btn-outline-primary {
+  width: 80px;
+  height: 40px;
+  
+  padding: 8px 12px 11px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: solid 2px #4d90eb;
+  position: absolute;
+  top: 149px;
+  right: 320px;
+
+}
+.no1 {
+  width: 20px;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 209px;
+  left: 359px;
+  }
+  .title2 {
+  width: 26px;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 209px;
+  left: 513px;
+  }
+  .writer1 {
+  width: 39px;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 209px;
+  left: 1010px;
+  }
+
+   .date1 {
+  width: 39px;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 209px;
+  left: 1176px;
+  }
+  
+  .background1 {
+  width: 1281px;
   height: 59px;
-  margin: 20px 0 30px;
-  padding: 11px 979px 16px 19px;
+  padding: 17px 57px 21px 40px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 230px;
+  left: 319px;
+  }
+  .no2 {
+  width: 30px;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 17px;
+  left: 40px;
+  }
+  .title3 {
+  width: 150x;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 17px;
+  left: 194px;
+  }
+  .writer2 {
+  width: 100px;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 17px;
+  left: 691px;
+  }
+
+   .date2 {
+  width: 76px;
+  height: 21px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 17px;
+  left: 857px;
+  }
+  
+  .content1 {
+  width: 30px;
+  height: 17px;
+  
+  font-family: AppleSDGothicNeoB00;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #20273b;
+  position: absolute;
+  top: 310px;
+  left: 329px;
+  }
+
+  .content2 {
+  width: 1281px;
+  height: 210px;
+  margin: 34px 0 22px;
+  padding: 10px 20px;
   border-radius: 10px;
   border: solid 1px #d3d3d3;
   background-color: #f4f4f4;
   position: absolute;
-  left: 28px;
-  top: 82px;;
+  top: 300px;
+  left: 319px;
 }
 
-.btn-primary {
-  height: 39px;
-  margin: 0 0 20px 159px;
-  padding: 7px 29px 11px 33px;
-  border-radius: 10px;
-  background-color: #4d90eb;
-  position: absolute;
-  left: 933px;
+.btn-list-primary {
+  width: 80px;
+  height: 40px;
   
-}
-
-.no {
-  width: 24px;
-  height: 24px;
-  margin: 0 0 42px 26px;
-  padding: 9px 1px;
+  padding: 8px 12px 11px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: solid 2px #4d90eb;
   position: absolute;
-  top: 80px;
-  left:28px;
-}
+  top: 550px;
+  right: 320px;
 
+}
 </style>
+</head>
+<body>
+
+<p class="title1">QnA</p>
+<c:if test="${not empty loginUser and loginUser.no == qna.writer.no or loginUser.power == 1 }">
+  <form action='update' method='post'>
+ 
+ 
+  
+
+    <p class="no1">No</p>
+    <p class="title2">제목</p>
+    <p class="writer1">작성자</p>
+    <p class="date1">등록일</p>
+    
+    <div class="background1">  
+      <p class="no2">${qna.no}</p>
+      <input type="hidden" name='no' value='${qna.no}'>
+      <input class="title3" type="text" name='title' value='${qna.title}'>
+      <p class="writer2">${qna.writer.name}</p>
+      <p class="date2">${qna.registeredDate}</p>
+    </div>
+    
+    <p class="content1">내용</p>
+    <textarea class="content2">${qna.content}</textarea>
+    <button type="submit" class="btn btn-primary">변경</button> 
+    <button type="submit" onclick="delete?no=${qna.no}" class="btn btn-outline-primary">삭제</button>
+    
+   </form>     
+   </c:if>
+   <!--<c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}">
+    <tr>
+        <td colspan='5'>해당 게시자가 아닙니다.</td>
+    </tr>
+  </c:if>-->
+    <button type="button" class="btn btn-list-primary" onclick="location.href='list' ">목록</button>
+
+</body>
+</html>
+
+
+
+<!--</style>
     <title class="QnA">QnA 상세</title>
     <c:if test="${not empty loginUser and loginUser.no == qna.writer.no or loginUser.power == 1 }">
 
@@ -88,7 +303,8 @@
     </div>
     <div>
     <form action='update' method='post'>
-    <button type="submit" class="btn btn-primary">등록</button>
+    <button type="submit" class="btn btn-primary">변경</button>
+    <button type="submit" onclick="delete?no=${qna.no}" class="btn btn-outline-primary">삭제</button>
     </div>
     <div class="dot">
     </div>
@@ -142,4 +358,4 @@
 <p><a href='list'>목록</a></p>
 </div>
 </body>
-</html>
+</html>-->

@@ -39,7 +39,7 @@
            order by q.m_qno desc
   </select>
 
-  <select id="findByKeyword" resultMap="qnaMap" parameterType="map">
+  <select id="findByKeyword" resultMap="qnaMap" parameterType="String">
     select
       q.m_qno,
       q.m_qtitle,
@@ -56,7 +56,7 @@
     </if>
     
     order by b.no desc
-    limit #{offset}, #{length}
+  
   </select>
 
   <update id="update" parameterType="qna">
