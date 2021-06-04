@@ -120,7 +120,7 @@ public class QnaHandler {
     Session session = Session.getDefaultInstance(props, new Authenticator() {
       @Override
       protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication("이메일", "");
+        return new PasswordAuthentication("cc-_-@naver.com", "qlxmqlxm1");
       }
     });
     System.out.println("Session 생성");
@@ -141,7 +141,7 @@ public class QnaHandler {
       msg.addHeader("format", "flowed");
       msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-      msg.setFrom(new InternetAddress("이메일", "JoinJoy"));
+      msg.setFrom(new InternetAddress("cc-_-@naver.com", "JoinJoy"));
 
       msg.setSubject(subject, "UTF-8");
 

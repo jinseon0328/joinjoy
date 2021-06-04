@@ -270,11 +270,15 @@
       <p class="date2">${qna.registeredDate}</p>
     </div>
     
+    <c:if test="${qna.getAnswer() != null or loginUser.power == 1 }">
+    <div class="background2">
     <p class="content1">내용</p>
+    <input type="hidden" name="date23" value='${qna.answerDate}'>
     <textarea class="content2">${qna.content}</textarea>
     <button type="submit" class="btn btn-primary">변경</button> 
     <button type="submit" onclick="delete?no=${qna.no}" class="btn btn-outline-primary">삭제</button>
-    
+    </div>
+    </c:if>
    </form>     
    </c:if>
    <!--<c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}">
