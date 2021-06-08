@@ -34,7 +34,7 @@ public class QnaSendMailHandler {
     Session session = Session.getDefaultInstance(props, new Authenticator() {
       @Override
       protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication("이메일", "");
+        return new PasswordAuthentication("이메일", "비밀번호");
       }
     });
     System.out.println("Session 생성");
