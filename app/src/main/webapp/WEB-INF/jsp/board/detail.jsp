@@ -1,4 +1,4 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>       
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%> 
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" 
     contentType="text/html; charset=UTF-8"
