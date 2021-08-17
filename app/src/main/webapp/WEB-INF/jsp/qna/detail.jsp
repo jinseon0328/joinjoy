@@ -11,7 +11,6 @@
 <html>
 <head>
 <style> 
-
 .title1 {
   width: 120px;
   height: 32px;
@@ -39,7 +38,6 @@
   top: 149px;
   right: 410px;
 }
-
 .btn-outline-primary {
   width: 80px;
   height: 40px;
@@ -51,7 +49,6 @@
   position: absolute;
   top: 149px;
   right: 320px;
-
 }
 .no1 {
   width: 20px;
@@ -104,7 +101,6 @@
   top: 209px;
   left: 1010px;
   }
-
    .date1 {
   width: 39px;
   height: 17px;
@@ -184,7 +180,6 @@
   top: 17px;
   left: 691px;
   }
-
    .date2 {
   width: 76px;
   height: 21px;
@@ -220,7 +215,6 @@
   top: 310px;
   left: 329px;
   }
-
   .content2 {
   width: 1281px;
   height: 210px;
@@ -233,7 +227,6 @@
   top: 300px;
   left: 319px;
 }
-
 .btn-list-primary {
   width: 80px;
   height: 40px;
@@ -245,7 +238,6 @@
   position: absolute;
   top: 550px;
   right: 320px;
-
 }
 </style>
 </head>
@@ -282,11 +274,11 @@
     </c:if>
    </form>     
    </c:if>
-   <!--<c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}">
+   <c:if test="${empty loginUser and loginUser.no != qna.writer.no or loginUser.power != 1}">
     <tr>
         <td colspan='5'>해당 게시자가 아닙니다.</td>
     </tr>
-  </c:if>-->
+  </c:if>
     <button type="button" class="btn btn-list-primary" onclick="location.href='list' ">목록</button>
 
 </body>
@@ -294,13 +286,10 @@
 
 
 
-<!--</style>
+</style>
     <title class="QnA">QnA 상세</title>
     <c:if test="${not empty loginUser and loginUser.no == qna.writer.no or loginUser.power == 1 }">
-
 </head>
-
-
 <body>
 <div class="content1">
     <div class="title">
@@ -319,7 +308,6 @@
     <div>
     <input class="form-control" type="text" name='title' value='${qna.title}' readonly>
     </div>
-
     <table border='1'>
         <tbody>
         <tr><th>번호</th> <td><input type='hidden' name='no' value='${qna.no}' readonly>${qna.no}</td></tr>
@@ -327,13 +315,11 @@
         <tr><th>내용</th> <td><textarea name='content' rows='10' cols='60'>${qna.content}</textarea></td></tr>
         <tr><th>작성자</th> <td>${qna.writer.name}</td></tr>
         <tr><th>등록일</th> <td>${qna.registeredDate}</td></tr>
-
         <c:if test="${qna.getAnswer() != null or loginUser.power == 1 }">
             <tr><th>답변일</th> <td>${qna.answerDate}</td></tr>
             <tr><th>답변내용</th> <td><textarea name='answer' rows='10' cols='60'>${qna.answer}</textarea></td></tr>
         </c:if>
         </tbody>
-
         <tfoot>
         <tr><td colspan='2'>
             <c:if test="${loginUser.getPower() == 1 || qna.getAnswer() == null }">
@@ -358,9 +344,7 @@
         <td colspan='5'>해당 게시자가 아닙니다.</td>
     </tr>
 </c:if>
-
-
 <p><a href='list'>목록</a></p>
 </div>
 </body>
-</html>-->
+</html>
