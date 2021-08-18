@@ -164,43 +164,6 @@ button.btn.btn-secondary {
 
 </style>
 </head>
-
-<header>
-    <div class="black"> 
-            <div class="logo-box">
-            <a href="location.href='../main'"><img src="../../images/joinjoylogo-bl.png" alt="logo"  class="logo">
-            </a>
-            </div>
-            <div class="hotplace-box">
-            <a href="../hotplace/list"><img src="../../images/hotplace-bl.png" alt="hotplace"  class="hotplace">
-            </a>
-            </div>
-            <div class="community-box">
-            <a href="../community/list"><img src="../../images/community-bl.png" alt="community"  class="community">
-            </a>
-            <div class="dropdown-menu">
-            <a clss="dropdown-item" href="../discount/list">꿀팁 게시판</a>
-            <a clss="dropdown-item" href="../discount/list">세컨핸즈샵</a>
-            <a clss="dropdown-item" href="../discount/list">자유 게시판</a>
-            </div>
-            </div>
-            <div class="discount-box">
-            <a href="../discount/list"><img src="../../images/discount-bl.png" alt="discount"  class="discount">
-            </a>
-            </div>
-            <div class="qna-box">
-            <a href="../qna/list"><img src="../../images/qna-bl.png" alt="qna"  class="qna">
-            </a>
-            </div>
-            <div class="faq-box">
-            <a href="../faq/list"><img src="../../images/faq-bl.png" alt="faq"  class="faq">
-            </a>
-            </div>
-            
-      <button type="button" onclick="location.href='../member/detail'" class="btn btn-outline-primary">mypage</button>
-      <button type="button" onclick="location.href='../member/logout'" class="btn btn-primary btn-sm">logout</button>
-      </div>
-</header>
     
 <title>QnA 리스트</title>
 <body>
